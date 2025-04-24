@@ -2,7 +2,7 @@
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 
-const skills: string[]=["C","C++","Python","Shell Scripting","Embedded Protocols (CAN, UART, I2C, SPI)","Technical Writing","API Documentation (Docs-as-Code)"];
+const skills: string[]=["C","C++","Python","Shell Scripting","Embedded Protocols (CAN, UART, I2C, SPI)","API Documentation (Docs-as-Code)"];
 const projects = [
   {
     title: "DTS on HiFi",
@@ -19,10 +19,6 @@ const projects = [
   {
     title: "Rear Speaker Detection",
     description: "Implemented distance and direction algorithms for Raspberry Pi and ADSP 21569 to detect speaker location.",
-  },
-  {
-    title: "Custom WiFi Router Firmware",
-    description: "Built OpenWRT firmware, added custom driver support, and optimized performance on embedded wireless platforms.",
   },
 ];
 
