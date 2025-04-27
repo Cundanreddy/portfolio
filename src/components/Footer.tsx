@@ -37,8 +37,8 @@ const Footer: React.FC = () => {
               </svg>
             </a>
           </div>
-          <p className="text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} My Portfolio. All rights reserved.
+          <p className="text-center text-gray-500 text">
+            © {new Date().getFullYear()} Cundan. All rights reserved.
           </p>
         </div>
       </div>
