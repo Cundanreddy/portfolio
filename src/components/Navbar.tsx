@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
   return (
     <>
-    <div>
+    <div className="hidden lg:block">
      
     <nav className="bg-[var(--color-background)] basis-1/3 shadow-lg border ring-1 ring-cyan-50/50 shadow-cyan-50/50 rounded-xl border-[var(--color-border)]">
       
