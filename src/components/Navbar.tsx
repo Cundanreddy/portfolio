@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
@@ -14,30 +13,30 @@ const Navbar: React.FC = () => {
           
            
             <div className="hidden sm:ml-6 sm:mr-6 sm:flex sm:space-x-8">
-              <Link
-                to="/"
-                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              <a
+                href="#"
+                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text font-medium"
               >
                 Home
-              </Link>
-              <Link
-                to="/about"
-                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              </a>
+              <a
+                href="#aboutme"
+                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text font-medium"
               >
                 About
-              </Link>
-              <Link
-                to="/projects"
-                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              </a>
+              <a
+                href="#projects"
+                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text font-medium"
               >
                 Projects
-              </Link>
-              <Link
-                to="/contact"
-                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              </a>
+              <a
+                href="#contact"
+                className="border-transparent text-[var(--color-text)] hover:text-[var(--color-primary)] inline-flex items-center px-1 pt-1 border-b-2 text font-medium"
               >
                 Contact
-              </Link>
+              </a>
             </div>
           
           

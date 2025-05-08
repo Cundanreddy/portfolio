@@ -7,10 +7,11 @@ const Header: React.FC = () => {
     const { theme, toggleTheme } = useTheme();  
   return (
     <div className='flex flex-row justify-between items-center py-2 px-4'>
-       
-        <Link to="/" className="text-xl basis-1/3 font-bold text-[var(--color-primary)]">
+       <div className="text-xl basis-1/3 font-bold text-[var(--color-primary)]">
+        <Link to="#">
             My Portfolio
         </Link>
+        </div>
 
         <Navbar/>
         <div className=" grid basis-1/3">
