@@ -10,7 +10,7 @@ export default function AboutMe() {
 
       <p className="mb-4 text-xl">
         This is <strong>Cundan</strong> an Embedded Engineer. I am currently working at 
-        <a className="italic" href="https://www.jasmin-infotech.com" target="_blank"> Jasmin Infotech</a>
+        <a className="italic" href="https://www.p3-group.com" target="_blank"> P3 Group</a>
         . <br/>Please go through this webiste to know me better.
       </p>
 
