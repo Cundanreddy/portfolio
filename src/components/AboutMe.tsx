@@ -1,32 +1,45 @@
 
-
-
-const skills: string[]=["C","C++","Python","Shell Scripting","Embedded Protocols (CAN, UART, I2C, SPI)","API Documentation (Docs-as-Code)"];
+import { profile } from '../data/profile';
+import { experience } from '../data/resume';
+import { skillCategories } from '../data/skills';
 
 export default function AboutMe() {
+  const currentExperience = experience.find(({ endDate }) => endDate === 'Present');
+
   return (
-    <section id="aboutme"className="p-6 md:p-10 bg-[var(--color-background)] text-[var(--color-text)]">
+    <section id="aboutme" className="p-6 md:p-10 bg-[var(--color-background)] text-[var(--color-text)]">
       <h2 className="text-3xl font-bold mb-6">About Me</h2>
 
       <p className="mb-4 text-xl">
-        This is <strong>Cundan</strong> an Embedded Engineer. I am currently working at 
-        <a className="italic" href="https://www.p3-group.com" target="_blank"> P3 Group</a>
-        . <br/>Please go through this webiste to know me better.
+        This is <strong>{profile.name}</strong>, {profile.title}. {profile.tagline}
       </p>
+      {currentExperience && (
+        <p className="mb-4">
+          Currently working at{' '}
+          <a
+            className="italic underline"
+            href={currentExperience.organizationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {currentExperience.organization}
+          </a>
+          .
+        </p>
+      )}
 
       <div className="flex flex-col items-center justify-center mt-6">
         <div className="flex flex-col items-center justify-center">
           <h3 className="text-xl font-semibold mb-2">Skills</h3>
-            <ul className="columns-3 md:columns-3 gap-2">
-                {skills.map((skill, index) => (
-                    <li className="text border border-gray-300 rounded-lg p-2 text-[var(--color-text)] break-inside-avoid mb-1" key={index}>{skill}</li>
-                ))}
+          <ul className="columns-2 md:columns-3 gap-2">
+            {skillCategories.flatMap(({ skills }) => skills).map(({ name }) => (
+              <li className="border border-gray-300 rounded-lg p-2 text-[var(--color-text)] break-inside-avoid mb-1" key={name}>
+                {name}
+              </li>
+            ))}
             </ul>
         </div>
-        
-
       </div>
-      
     </section>
   );
 }

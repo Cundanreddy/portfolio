@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   return (
     <div className='flex flex-row justify-between items-center py-2 px-4'>
        <div className="text-xl basis-1/3 font-bold text-[var(--color-primary)]">
-        <Link to="#">
+        <Link to="/">
             My Portfolio
         </Link>
         </div>
@@ -17,10 +17,10 @@ const Header: React.FC = () => {
         <div className=" grid basis-1/3">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-[var(--color-text)] hover:bg-[var(--color-border)] focus:outline-none justify-self-end"
+              className="p-2 rounded-full text-[var(--color-text)] hover:bg-[var(--color-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] justify-self-end"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? (
+              {theme === 'day' ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>

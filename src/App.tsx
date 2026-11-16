@@ -4,7 +4,7 @@ import './index.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text)]">
       <RouterProvider router={router} />
     </div>
   );
