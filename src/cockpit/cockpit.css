@@ -124,17 +124,17 @@
 }
 
 .cockpit-instrument-cluster {
-  z-index: 1;
-  top: 27%;
-  left: 8%;
-  width: 29%;
-  height: 34%;
+  z-index: 3;
+  top: 44%;
+  left: 5%;
+  width: 32%;
+  height: auto;
   filter: drop-shadow(0 1rem 1rem #000b);
 }
 
 .cockpit-screen {
   z-index: 2;
-  top: 16%;
+  top: 25%;
   left: 41%;
   width: 55%;
   height: 56%;
@@ -273,29 +273,10 @@
   );
 }
 
-.cockpit-console-bridge {
-  position: absolute;
-  right: 4%;
-  bottom: 18%;
-  display: flex;
-  width: 45%;
-  height: 70%;
-  align-items: center;
-  justify-content: center;
-  gap: 8%;
-  border: 1px solid #444e52;
-  border-radius: 2rem 2rem 35% 35%;
-  background:
-    repeating-linear-gradient(90deg, #ffffff06 0 1px, transparent 1px 4px),
-    linear-gradient(135deg, #303a3d, #111719 48%, #242e31);
-  box-shadow: 0 1rem 1rem #000a, inset 0 1px #ffffff16;
-  transform: perspective(600px) rotateX(10deg);
-}
-
 .cockpit-start-button {
   position: absolute;
-  bottom: 8%;
-  left: 10%;
+  bottom: 36%;
+  left: 38%;
   display: flex;
   width: 4.3rem;
   height: 4.3rem;
@@ -322,44 +303,45 @@
   filter: drop-shadow(0 0 0.25rem var(--accent-glow));
 }
 
-.cockpit-console-control {
-  width: 2.5rem;
-  height: 1rem;
-  border: 1px solid #748084;
-  border-radius: 999px;
-  background: linear-gradient(#1d282c, #080c0e);
-  box-shadow: inset 0 0 0.5rem #000c;
-}
-
-.cockpit-console-control-two {
-  width: 1.8rem;
-}
-
-.cockpit-pedal {
-  position: absolute;
-  right: 1%;
-  bottom: 5%;
-  display: flex;
-  width: 12%;
-  height: 72%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 4%;
-  border: 2px solid #687277;
-  border-radius: 1rem 1rem 2.5rem 2.5rem;
-  background: linear-gradient(110deg, #111719, #354044 45%, #101517);
-  box-shadow: 0 1rem 1rem #000c, inset 0 0 0.5rem #000b;
-  transform: perspective(300px) rotateY(-8deg) rotateX(6deg);
-}
-
-.cockpit-pedal span {
-  width: 100%;
-  height: 2px;
-  background: #9da9ad66;
-}
-
 .cockpit-compact-controls {
   display: none;
+}
+
+@media (min-aspect-ratio: 16/9) and (min-width: 768px) {
+  .cockpit-stage {
+    width: 100vw;
+    height: 100dvh;
+    aspect-ratio: auto;
+  }
+
+  .cockpit-instrument-cluster {
+    left: 3%;
+    top: 44%;
+    width: 52dvh;
+    max-width: 640px;
+    height: auto;
+  }
+
+  .cockpit-steering-wheel {
+    left: 3%;
+    width: 52dvh;
+    max-width: 640px;
+  }
+
+  .cockpit-paddles {
+    left: calc(3% + 9dvh);
+    width: 26dvh;
+    max-width: 340px;
+  }
+
+  .cockpit-screen {
+    left: 40%;
+    width: 58%;
+  }
+
+  .cockpit-start-button {
+    left: calc(3% + 51dvh);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

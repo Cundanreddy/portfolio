@@ -5,16 +5,6 @@ export default function CenterConsole() {
         <span className="cockpit-start-ring" />
         <span>START</span>
       </div>
-      <div className="cockpit-console-bridge">
-        <div className="cockpit-console-control cockpit-console-control-one" />
-        <div className="cockpit-console-control cockpit-console-control-two" />
-      </div>
-      <div className="cockpit-pedal">
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
     </div>
   );
 }
