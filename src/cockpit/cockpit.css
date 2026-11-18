@@ -1,0 +1,460 @@
+.cockpit-viewport {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 50%, #263237 0, #0b1012 75%),
+    #080b0d;
+}
+
+.cockpit-stage {
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  width: min(100vw, calc(100dvh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  color: #e7eef0;
+  background: #101719;
+  font-family: var(--font-sans);
+  box-shadow: 0 2rem 7rem #000b;
+}
+
+.cockpit-windshield,
+.cockpit-cabin-frame,
+.cockpit-dashboard,
+.cockpit-instrument-cluster,
+.cockpit-screen,
+.cockpit-steering-wheel,
+.cockpit-paddles,
+.cockpit-console {
+  position: absolute;
+}
+
+.cockpit-windshield {
+  z-index: -5;
+  inset: 0;
+  width: 100%;
+  height: 68%;
+}
+
+.cockpit-cabin-frame {
+  z-index: -3;
+  inset: 0;
+  width: 100%;
+  height: 68%;
+}
+
+.cockpit-parallax {
+  transition: transform 160ms ease-out;
+}
+
+.cockpit-windshield.cockpit-parallax {
+  transform: translate(
+    calc(var(--parallax-x) * -0.5),
+    calc(var(--parallax-y) * -0.35)
+  );
+}
+
+.cockpit-cabin-frame.cockpit-parallax {
+  transform: translate(
+    calc(var(--parallax-x) * -0.35),
+    calc(var(--parallax-y) * -0.25)
+  );
+}
+
+.cockpit-dashboard {
+  z-index: -2;
+  inset: 46% -4% -13%;
+  border: 1px solid #59636766;
+  border-radius: 48% 48% 7% 7% / 11% 11% 3% 3%;
+  background:
+    radial-gradient(ellipse at 50% 0, #303a3d 0, #1a2225 34%, transparent 69%),
+    repeating-linear-gradient(176deg, #ffffff08 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #1c2427 0%, #111719 43%, #080c0e 100%);
+  box-shadow:
+    0 -12px 30px #030607cc,
+    inset 0 16px 24px #ffffff08,
+    inset 0 -35px 48px #000b;
+}
+
+.cockpit-dashboard-top {
+  position: absolute;
+  inset: 4% 5% auto;
+  height: 17%;
+  border-top: 1px solid #c1ccce24;
+  border-radius: 50%;
+}
+
+.cockpit-dashboard-stitch {
+  position: absolute;
+  top: 21%;
+  right: 7%;
+  left: 7%;
+  height: 2px;
+  border-top: 1px dashed #9ba8a944;
+  box-shadow: 0 2px 6px #000b;
+}
+
+.cockpit-dashboard-face {
+  position: absolute;
+  top: 24%;
+  right: 3%;
+  left: 3%;
+  height: 51%;
+  border: 1px solid #313a3d;
+  border-radius: 4rem 4rem 2rem 2rem;
+  background:
+    linear-gradient(90deg, transparent, #46515533 50%, transparent),
+    repeating-linear-gradient(0deg, #ffffff05 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #171e21, #101618);
+  box-shadow: inset 0 9px 16px #0008, 0 5px 16px #0009;
+}
+
+.cockpit-dashboard-lower {
+  position: absolute;
+  inset: 78% 0 0;
+  border-top: 1px solid #59636766;
+  background: linear-gradient(180deg, #111719, #090d0f 60%, #030506);
+}
+
+.cockpit-instrument-cluster {
+  z-index: 1;
+  top: 27%;
+  left: 8%;
+  width: 29%;
+  height: 34%;
+  filter: drop-shadow(0 1rem 1rem #000b);
+}
+
+.cockpit-screen {
+  z-index: 2;
+  top: 16%;
+  left: 41%;
+  width: 55%;
+  height: 56%;
+  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+  transform-origin: center;
+  filter: drop-shadow(0 1rem 1.5rem #000c);
+}
+
+.cockpit-screen-bezel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1.2%;
+  overflow: hidden;
+  border: 1px solid #718084;
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, #465155, #111719 22%, #050809 75%, #344044);
+  box-shadow:
+    0 0 0 3px #090d0f,
+    0 0 0 4px #566266,
+    inset 0 0 0 1px #000;
+}
+
+.cockpit-screen-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #1b3238;
+  border-radius: 0.7rem;
+  background:
+    radial-gradient(ellipse at 50% 0, #1e3c43 0, transparent 74%),
+    #0b1215;
+  box-shadow:
+    inset 0 0 2rem #000c,
+    0 0 1.2rem var(--accent-glow);
+}
+
+.cockpit-screen-content {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: var(--color-text);
+  background: var(--color-background);
+  scrollbar-color: #68797d #111719;
+  scrollbar-width: thin;
+}
+
+.cockpit-screen-content > p {
+  display: grid;
+  height: 100%;
+  margin: 0;
+  place-items: center;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1vw, 1.15rem);
+}
+
+.cockpit-screen-status {
+  position: absolute;
+  right: 2.5%;
+  bottom: 1%;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  height: 2px;
+}
+
+.cockpit-screen-status span {
+  width: 0.22rem;
+  height: 0.22rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0.35rem var(--accent-glow);
+}
+
+.cockpit-steering-wheel {
+  z-index: 4;
+  top: 34%;
+  left: 5%;
+  width: 32%;
+  height: 53%;
+  overflow: visible;
+  filter: drop-shadow(0 1.2rem 1rem #000e);
+  transform: translate(
+    calc(var(--parallax-x) * 0.35),
+    calc(var(--parallax-y) * 0.3)
+  );
+}
+
+.cockpit-paddles {
+  z-index: 5;
+  top: 89%;
+  left: 17%;
+  display: flex;
+  width: 14%;
+  height: 9%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cockpit-paddle {
+  display: grid;
+  width: 43%;
+  height: 90%;
+  place-items: center;
+  border: 2px solid #788489;
+  border-radius: 40% 40% 22% 22%;
+  background:
+    linear-gradient(90deg, #06090a, #596368 45%, #111719 72%),
+    #151c1f;
+  box-shadow: 0 0.5rem 1rem #000c, inset 0 0 0.5rem #ffffff22;
+  color: #ccebf0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 1.2vw, 1.2rem);
+}
+
+.cockpit-paddle-left {
+  transform: rotate(-7deg);
+}
+
+.cockpit-paddle-right {
+  transform: rotate(7deg);
+}
+
+.cockpit-console {
+  z-index: 5;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  pointer-events: none;
+  transform: translate(
+    calc(var(--parallax-x) * 0.2),
+    calc(var(--parallax-y) * 0.18)
+  );
+}
+
+.cockpit-console-bridge {
+  position: absolute;
+  right: 4%;
+  bottom: 18%;
+  display: flex;
+  width: 45%;
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+  gap: 8%;
+  border: 1px solid #444e52;
+  border-radius: 2rem 2rem 35% 35%;
+  background:
+    repeating-linear-gradient(90deg, #ffffff06 0 1px, transparent 1px 4px),
+    linear-gradient(135deg, #303a3d, #111719 48%, #242e31);
+  box-shadow: 0 1rem 1rem #000a, inset 0 1px #ffffff16;
+  transform: perspective(600px) rotateX(10deg);
+}
+
+.cockpit-start-button {
+  position: absolute;
+  bottom: 8%;
+  left: 10%;
+  display: flex;
+  width: 4.3rem;
+  height: 4.3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border: 2px solid #68757a;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #495559, #101618 70%);
+  box-shadow: inset 0 0 0.8rem #000b, 0 0 0.6rem var(--accent-soft);
+  color: #cdebf0;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+}
+
+.cockpit-start-ring {
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid var(--accent);
+  border-top-color: transparent;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.25rem var(--accent-glow));
+}
+
+.cockpit-console-control {
+  width: 2.5rem;
+  height: 1rem;
+  border: 1px solid #748084;
+  border-radius: 999px;
+  background: linear-gradient(#1d282c, #080c0e);
+  box-shadow: inset 0 0 0.5rem #000c;
+}
+
+.cockpit-console-control-two {
+  width: 1.8rem;
+}
+
+.cockpit-pedal {
+  position: absolute;
+  right: 1%;
+  bottom: 5%;
+  display: flex;
+  width: 12%;
+  height: 72%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 4%;
+  border: 2px solid #687277;
+  border-radius: 1rem 1rem 2.5rem 2.5rem;
+  background: linear-gradient(110deg, #111719, #354044 45%, #101517);
+  box-shadow: 0 1rem 1rem #000c, inset 0 0 0.5rem #000b;
+  transform: perspective(300px) rotateY(-8deg) rotateX(6deg);
+}
+
+.cockpit-pedal span {
+  width: 100%;
+  height: 2px;
+  background: #9da9ad66;
+}
+
+.cockpit-compact-controls {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cockpit-parallax {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767px), (orientation: portrait) {
+  .cockpit-viewport {
+    display: block;
+    height: 100vh;
+    height: 100dvh;
+    background: #0a0f11;
+  }
+
+  .cockpit-stage {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: max(0.5rem, env(safe-area-inset-top)) 0.5rem
+      max(0.5rem, env(safe-area-inset-bottom));
+    background:
+      radial-gradient(ellipse at 50% 0, #183036 0, transparent 55%),
+      #0a0f11;
+    box-shadow: none;
+  }
+
+  .cockpit-windshield,
+  .cockpit-cabin-frame,
+  .cockpit-dashboard,
+  .cockpit-instrument-cluster,
+  .cockpit-steering-wheel,
+  .cockpit-paddles,
+  .cockpit-console {
+    display: none;
+  }
+
+  .cockpit-screen {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 72%;
+    min-height: 0;
+    top: auto;
+    left: auto;
+    transform: none;
+    filter: none;
+  }
+
+  .cockpit-screen-bezel {
+    padding: 2%;
+    border: 1px solid #52666b;
+    border-radius: 1.2rem;
+    box-shadow:
+      0 0 0 3px #050809,
+      0 0 1.5rem var(--accent-soft),
+      0 1rem 2rem #000a;
+  }
+
+  .cockpit-compact-controls {
+    display: grid;
+    height: 22%;
+    min-height: 5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 0.55rem;
+    padding: 0.85rem 0.2rem 0;
+  }
+
+  .compact-control {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    border: 1px solid #455459;
+    border-radius: 0.75rem;
+    background: linear-gradient(145deg, #202a2d, #111719);
+    box-shadow: inset 0 1px #ffffff12, 0 0.3rem 0.8rem #0008;
+    color: #b7c8cc;
+    font-family: var(--font-mono);
+    font-size: clamp(0.58rem, 2.5vw, 0.78rem);
+    letter-spacing: 0.04em;
+  }
+
+  .compact-start {
+    border-color: var(--accent-glow);
+    color: var(--accent);
+  }
+
+  .compact-throttle {
+    grid-column: 1 / -1;
+    min-height: 2rem;
+  }
+}

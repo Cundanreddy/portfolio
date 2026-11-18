@@ -1,6 +1,5 @@
 import { createHashRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
-import Home from '../pages/Home';
 import AppPlaceholder from '../pages/AppPlaceholder';
 
 const appRoutes = [
@@ -20,7 +19,7 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <p>Infotainment goes here</p>,
       },
       ...appRoutes.map(({ path, title }) => ({
         path,
