@@ -1,16 +1,9 @@
 import { createHashRouter } from 'react-router-dom';
+import AppWindow from '../infotainment/AppWindow';
+import { infotainmentApps } from '../infotainment/apps';
+import Launcher from '../infotainment/Launcher';
 import MainLayout from '../layouts/MainLayout';
 import AppPlaceholder from '../pages/AppPlaceholder';
-
-const appRoutes = [
-  { path: 'resume', title: 'Resume' },
-  { path: 'projects', title: 'Projects' },
-  { path: 'skills', title: 'Skills' },
-  { path: 'media', title: 'Media' },
-  { path: 'contact', title: 'Contact' },
-  { path: 'maps', title: 'Maps' },
-  { path: 'settings', title: 'Settings' },
-];
 
 const router = createHashRouter([
   {
@@ -19,11 +12,15 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <p>Infotainment goes here</p>,
+        element: <Launcher />,
       },
-      ...appRoutes.map(({ path, title }) => ({
-        path,
-        element: <AppPlaceholder title={title} />,
+      ...infotainmentApps.map(({ path, title }) => ({
+        path: path.slice(1),
+        element: (
+          <AppWindow title={title}>
+            <AppPlaceholder title={title} />
+          </AppWindow>
+        ),
       })),
     ],
   },

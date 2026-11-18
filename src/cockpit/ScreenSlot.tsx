@@ -1,16 +1,22 @@
 import type { ReactNode } from 'react';
+import { useInfotainment } from '../infotainment/useInfotainment';
 
 interface ScreenSlotProps {
-  children?: ReactNode;
+  children: ReactNode;
 }
 
 export default function ScreenSlot({ children }: ScreenSlotProps) {
+  const { expanded } = useInfotainment();
+
   return (
-    <section className="cockpit-screen" aria-label="Infotainment screen">
+    <section
+      className={`cockpit-screen${expanded ? ' cockpit-screen-expanded' : ''}`}
+      aria-label="Infotainment screen"
+    >
       <div className="cockpit-screen-bezel">
         <div className="cockpit-screen-glass">
           <div className="cockpit-screen-content">
-            {children ?? <p>Infotainment goes here</p>}
+            {children}
           </div>
         </div>
         <div className="cockpit-screen-status" aria-hidden="true">

@@ -8,6 +8,7 @@ import PaddleShifters from './PaddleShifters';
 import ScreenSlot from './ScreenSlot';
 import SteeringWheel from './SteeringWheel';
 import Windshield from './Windshield';
+import { useInfotainment } from '../infotainment/useInfotainment';
 import './cockpit.css';
 
 interface CockpitStageProps {
@@ -16,6 +17,7 @@ interface CockpitStageProps {
 
 export default function CockpitStage({ children }: CockpitStageProps) {
   const stageRef = useRef<HTMLDivElement>(null);
+  const { expanded } = useInfotainment();
 
   useEffect(() => {
     const stage = stageRef.current;
@@ -48,8 +50,11 @@ export default function CockpitStage({ children }: CockpitStageProps) {
   }, []);
 
   return (
-    <main className="cockpit-viewport">
-      <div className="cockpit-stage" ref={stageRef}>
+    <main className={`cockpit-viewport${expanded ? ' is-expanded' : ''}`}>
+      <div
+        className={`cockpit-stage${expanded ? ' is-expanded' : ''}`}
+        ref={stageRef}
+      >
         <Windshield />
         <CabinFrame />
         <CockpitDashboard />
@@ -57,6 +62,7 @@ export default function CockpitStage({ children }: CockpitStageProps) {
         <PaddleShifters />
         <SteeringWheel />
         <CenterConsole />
+        {expanded && <div className="cockpit-expanded-dimmer" aria-hidden="true" />}
         <ScreenSlot>{children}</ScreenSlot>
         <CompactControls />
       </div>

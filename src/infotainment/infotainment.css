@@ -1,0 +1,455 @@
+.infotainment-shell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 70% 0, var(--accent-soft), transparent 62%),
+    var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+.infotainment-statusbar {
+  z-index: 2;
+  display: flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  color: var(--color-text-secondary);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+}
+
+.infotainment-clock {
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.infotainment-status-items {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.infotainment-status-items > svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.infotainment-temperature {
+  margin-right: 0.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.infotainment-icon-button,
+.infotainment-dock-button {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.infotainment-icon-button:hover,
+.infotainment-dock-button:hover {
+  border-color: var(--color-border);
+  background: var(--accent-soft);
+  color: var(--color-primary);
+}
+
+.infotainment-icon-button svg,
+.infotainment-dock-button svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.infotainment-content {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.infotainment-hero {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(0.8rem, 2.5vw, 1.8rem);
+  border: 1px solid var(--color-border);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(140deg, var(--accent-soft), transparent 70%),
+    var(--color-surface);
+  box-shadow: inset 0 1px #ffffff18;
+}
+
+.infotainment-eyebrow {
+  margin: 0 0 0.55rem;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: clamp(0.58rem, 0.8vw, 0.7rem);
+  letter-spacing: 0.14em;
+}
+
+.infotainment-hero h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  line-height: 1.15;
+}
+
+.infotainment-hero h1 span {
+  color: var(--color-primary);
+}
+
+.infotainment-hero-title {
+  margin: 0.45rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: clamp(0.78rem, 1.1vw, 1rem);
+  font-weight: 600;
+}
+
+.infotainment-hero-tagline {
+  display: -webkit-box;
+  margin: 0.6rem 0 0;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  font-size: clamp(0.68rem, 0.95vw, 0.84rem);
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.infotainment-resume-button {
+  display: inline-flex;
+  min-height: 2.55rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.7rem;
+  background: var(--accent-soft);
+  color: var(--color-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.infotainment-resume-button:hover {
+  background: var(--accent-glow);
+}
+
+.infotainment-launcher {
+  display: grid;
+  min-height: 100%;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(0.7rem, 1.4vw, 1.25rem);
+  padding: clamp(0.7rem, 1.4vw, 1.25rem);
+}
+
+.infotainment-app-grid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.45rem, 1vw, 0.85rem);
+}
+
+.infotainment-app-tile {
+  display: flex;
+  min-width: 0;
+  min-height: 3.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background:
+    linear-gradient(145deg, var(--color-surface), color-mix(in srgb, var(--color-surface) 84%, var(--accent))),
+    var(--color-surface);
+  box-shadow: 0 0.35rem 0.8rem #0002, inset 0 1px #ffffff24;
+  color: var(--color-text);
+  font-size: clamp(0.65rem, 0.95vw, 0.82rem);
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.infotainment-app-tile svg {
+  width: clamp(1.15rem, 2vw, 1.65rem);
+  height: clamp(1.15rem, 2vw, 1.65rem);
+  color: var(--color-primary);
+}
+
+.infotainment-app-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.infotainment-app-tile:focus-visible,
+.infotainment-icon-button:focus-visible,
+.infotainment-dock-button:focus-visible,
+.infotainment-resume-button:focus-visible,
+.infotainment-boot:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.infotainment-app-window {
+  display: flex;
+  min-height: 100%;
+  flex: 1 1 auto;
+  flex-direction: column;
+  animation: infotainment-window-open 200ms ease both;
+}
+
+.infotainment-app-window.is-closing {
+  animation: infotainment-window-close 200ms ease both;
+  pointer-events: none;
+}
+
+.infotainment-app-titlebar {
+  display: flex;
+  min-height: 3rem;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.7rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.infotainment-app-titlebar h1 {
+  min-width: 0;
+  flex: 1;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+}
+
+.infotainment-app-body {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.infotainment-app-body > section {
+  min-height: 100%;
+  padding: clamp(0.8rem, 1.8vw, 1.5rem);
+  color: var(--color-text);
+}
+
+.infotainment-dock {
+  z-index: 2;
+  display: flex;
+  min-height: 3.25rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.3rem, 1vw, 0.75rem);
+  padding: 0.4rem 0.6rem max(0.4rem, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 95%, transparent);
+}
+
+.infotainment-dock-button {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-color: var(--color-border);
+  background: var(--color-background);
+}
+
+.infotainment-dock-button.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--color-primary);
+}
+
+.infotainment-dock-divider {
+  width: 1px;
+  height: 1.5rem;
+  margin: 0 0.15rem;
+  background: var(--color-border);
+}
+
+.infotainment-boot {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, var(--accent-soft), transparent 50%),
+    var(--color-background);
+  color: var(--color-text);
+  cursor: pointer;
+  animation: infotainment-boot-fade 1500ms ease both;
+}
+
+.infotainment-boot-mark {
+  display: grid;
+  width: clamp(3rem, 7vw, 5rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 1.3rem;
+  box-shadow: 0 0 2rem var(--accent-soft);
+  color: var(--accent);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 300;
+}
+
+.infotainment-boot-title {
+  font-size: clamp(1.1rem, 2.3vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.infotainment-boot-caption {
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+}
+
+.infotainment-boot-progress {
+  width: 5rem;
+  height: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.infotainment-boot-progress::after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: infotainment-boot-progress 1400ms ease forwards;
+}
+
+@keyframes infotainment-window-open {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes infotainment-window-close {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes infotainment-boot-fade {
+  0%, 82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes infotainment-boot-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 767px), (orientation: portrait) {
+  .infotainment-statusbar {
+    min-height: 2.6rem;
+    padding-inline: 0.6rem;
+  }
+
+  .infotainment-status-items {
+    gap: 0.45rem;
+  }
+
+  .infotainment-launcher {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .infotainment-hero {
+    padding: 0.85rem;
+  }
+
+  .infotainment-hero-tagline {
+    -webkit-line-clamp: 2;
+  }
+
+  .infotainment-app-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(3.2rem, 1fr));
+    gap: 0.5rem;
+  }
+
+  .infotainment-app-tile {
+    border-radius: 0.85rem;
+  }
+
+  .infotainment-dock {
+    min-height: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infotainment-icon-button,
+  .infotainment-dock-button,
+  .infotainment-resume-button,
+  .infotainment-app-tile {
+    transition: none;
+  }
+
+  .infotainment-app-window,
+  .infotainment-app-window.is-closing,
+  .infotainment-boot,
+  .infotainment-boot-progress::after {
+    animation-duration: 1ms;
+  }
+}
